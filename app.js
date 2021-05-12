@@ -10,14 +10,20 @@ app.use('/post', () => {
     console.log('this is middleware')
 })
 
+// IMPORT
+
+const artworkRoutes = require('./routes/routes');
+
+app.use('/artworks', artworkRoutes)
+
 //ROUTES
 
 app.get('/', (req, res) => {
     res.send('this is home')
 })
 
-app.get('/post', (req, res) => {
-    res.send('this is post')
+app.get('/artworks', (req, res) => {
+    res.send('this is works')
 })
 
 // CONNECT TO DB 
