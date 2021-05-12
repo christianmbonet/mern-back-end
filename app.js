@@ -1,14 +1,13 @@
 const express = require('express');
 const Mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config')
 
 const app = express();
 
 // MIDDLEWARE
 
-// app.use('/posts', () => {
-//     console.log('this is middleware')
-// })
+app.use(bodyParser.json())
 
 // IMPORT
 
