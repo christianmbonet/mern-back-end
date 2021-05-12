@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/artwork', (req, res) => {
-    res.send('this is work')
+router.get('/', (req, res) => {
+    res.send('this is posts')
 })
 
-router.get('/artworks', (req, res) => {
-    res.send('this is artworks')
+router.post('/posts', (req, res) => {
+    res.send('this is posts')
 })
 
 module.exports = router;

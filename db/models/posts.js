@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose'),
 
-const artworkSchema = new mongoose.Schema(
+const postSchema = new mongoose.Schema(
     {
       name: {
         type: String,
@@ -9,17 +9,17 @@ const artworkSchema = new mongoose.Schema(
         trim: true
       },
 
-      artist: {
+      description: {
         type: String,
         required: true,
         trim: true
       },
 
       date: {
-        type: String,
+        type: Date,
         required: true,
-        trim: true
+        default: Date.now
       },
     })
 
-      module.exports = artworkSchema;
+      module.exports = postSchema;
