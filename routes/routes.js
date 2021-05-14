@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 // Get one
 
 router.get('/:id', (req, res) => {
-    res.params.id('this is get one:id')
+    res.send(req.params.id)
 })
 
 // Create one
@@ -26,6 +26,13 @@ router.post('/', (req, res) => {
         title: req.body.title,
         description: req.body.description,
     })
+
+    try {
+        const newPost = await post.save()
+        res.status(201).json(newPost)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
 })
 
 // Update one
