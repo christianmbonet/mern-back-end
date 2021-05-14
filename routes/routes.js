@@ -4,8 +4,13 @@ const router = express.Router();
 
 // Get all
 
-router.get('/', (req, res) => {
-    res.send('this is get all')
+router.get('/', async (req, res) => {
+    try {
+        const posts = await Post.find()
+        res.json(posts)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 })
 
 // Get one
