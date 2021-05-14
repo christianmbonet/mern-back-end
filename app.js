@@ -29,7 +29,6 @@ Mongoose.connect(process.env.DB_CONNECTION,
     () => console.log('connected to db')
 )
 
-
 // LISTENING ON PORT
 
-app.listen(4000)
+app.listen(4000, () => console.log('server started'))
