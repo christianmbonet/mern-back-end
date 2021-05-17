@@ -47,9 +47,12 @@ router.get('/:id', (req, res) => {
     res.send('this is posts')
 })
 
-const async getPost = (req, res, next) => {
+const getPost = async (req, res, next) => {
     try {
         post = await Post.findById(req.params.id)
+        if (post == null) {
+            return res.status(404).json({ message: 'cannot find post'})
+        }
     } catch (err) {
 
     }
