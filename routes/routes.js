@@ -47,4 +47,12 @@ router.get('/:id', (req, res) => {
     res.send('this is posts')
 })
 
+const async getPost = (req, res, next) => {
+    try {
+        post = await Post.findById(req.params.id)
+    } catch (err) {
+
+    }
+}
+
 module.exports = router;
