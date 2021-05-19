@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 
 // Get one
 
-router.get('/:id', (req, res) => {
-    res.send(req.params.id)
+router.get('/:id', getPost, (req, res) => {
+    res.send(req.post.title)
 })
 
 // Create one
