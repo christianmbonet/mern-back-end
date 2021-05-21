@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 // Get one
 
 router.get('/:id', getPost, (req, res) => {
-    res.send(req.post.title)
+    res.json(res.post)
 })
 
 // Create one
@@ -57,8 +57,13 @@ router.patch('/:id', (req, res) => {
 
 // Delete one
 
-router.get('/:id', (req, res) => {
-    res.send('this is posts')
+router.get('/:id', getPost, async (req, res) => {
+    try {
+        await res.post.remove()
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+    
 })
 
 module.exports = router;
